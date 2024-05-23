@@ -1,13 +1,13 @@
 # Set default font for Microsoft 365 apps
 
-# Define the font name and size
+# Set font name and size
 $fontName = "Calibri"
 $fontSize = 11
 
-# List of Microsoft 365 apps
+# List of Microsoft apps
 $apps = "Word", "Excel", "PowerPoint", "Outlook"
 
-# Loop through each app and set the default font
+# Loop and set the default font
 foreach ($app in $apps) {
     $registryPath = "HKCU:\Software\Microsoft\Office\$app\Common\Formatting\FontMapping"
     $null = New-Item -Path $registryPath -Force
@@ -15,5 +15,5 @@ foreach ($app in $apps) {
     Write-Host "Default font for $app set to $fontName Regular $fontSize pt"
 }
 
-# Notify user
+# Output
 Write-Host "Default font for all Microsoft 365 apps set to $fontName Regular $fontSize pt"
